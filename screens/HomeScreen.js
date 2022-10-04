@@ -1,6 +1,6 @@
-import { View, SafeAreaView, Image } from "react-native";
 import React from "react";
 import tw from "twrnc";
+import { View, SafeAreaView, Image } from "react-native";
 import NavOptions from "../components/NavOptions";
 
 export default function HomeScreen() {
@@ -17,7 +17,6 @@ export default function HomeScreen() {
             uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/2560px-Uber_logo_2018.svg.png",
           }}
         />
-
         <NavOptions />
       </View>
     </SafeAreaView>
