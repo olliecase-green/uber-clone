@@ -35,25 +35,25 @@ export default function HomeScreen() {
             },
           }}
           onPress={(data, details = null) => {
-            console.log(data.description);
-            // dispatch(
-            //   setOrigin({
-            //     location: details.geometry.location,
-            //     description: data.description,
-            //   })
-            // );
-            // dispatch(setDestination(null));
+            dispatch(
+              setOrigin({
+                location: details.geometry.location,
+                description: data.description,
+              })
+            );
+            dispatch(setDestination(null));
           }}
+          fetchDetails={true}
+          returnKeyType={"search"}
           enablePoweredByContainer={false}
           minLength={2}
           query={{
             key: GOOGLE_MAPS_API_KEY,
             language: "en",
           }}
-          nearbyPlacesAPO="GooglePlacesSearch"
+          nearbyPlacesAPI="GooglePlacesSearch"
           debounce={400}
         />
-
         <NavOptions />
       </View>
     </SafeAreaView>

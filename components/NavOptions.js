@@ -3,6 +3,8 @@ import tw from "twrnc";
 import { View, Text, TouchableOpacity, FlatList, Image } from "react-native";
 import { Icon } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
+import { selectOrigin } from "../slices/navSlice";
 
 const data = [
   {
@@ -23,6 +25,11 @@ const data = [
 
 export default function NavOptions() {
   const navigation = useNavigation();
+  const origin = useSelector(selectOrigin);
+
+  function isOriginSpecified() {
+    if (!origin) return "opacity-20";
+  }
 
   return (
     <FlatList
@@ -33,8 +40,9 @@ export default function NavOptions() {
         <TouchableOpacity
           onPress={() => navigation.navigate(item.screen)}
           style={tw`p-4 bg-gray-200 m-2`}
+          disabled={!origin}
         >
-          <View>
+          <View style={tw`${isOriginSpecified()}`}>
             <Image
               style={{ width: 120, height: 120, resizeMode: "contain" }}
               source={{ uri: item.image }}

@@ -10,5 +10,3 @@ export default function EatScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({});

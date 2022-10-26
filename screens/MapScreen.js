@@ -1,14 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import tw from "twrnc";
+import { View } from "react-native";
+import Map from "../components/Map";
 
 export default function MapScreen() {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>This will be the map screen eventually</Text>
+    <View>
+      <View style={tw`h-1/2`}>
+        <Map />
       </View>
-    </SafeAreaView>
+
+      <View style={tw`h-1/2`}></View>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({});
