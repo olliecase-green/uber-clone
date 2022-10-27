@@ -20,7 +20,7 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
-      <View style={tw`pl-5`}>
+      <View style={tw`pl-7`}>
         <Image
           style={{
             width: 100,
