@@ -39,7 +39,7 @@ export default function NavOptions() {
       renderItem={({ item }) => (
         <TouchableOpacity
           onPress={() => navigation.navigate(item.screen)}
-          style={tw`p-4 bg-gray-200 m-2`}
+          style={tw`p-4 bg-gray-200 mr-4`}
           disabled={!origin}
         >
           <View style={tw`${isOriginSpecified()}`}>

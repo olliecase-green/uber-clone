@@ -1,6 +1,6 @@
 import React from "react";
 import tw from "twrnc";
-import { View, SafeAreaView, Image } from "react-native";
+import { View, SafeAreaView, Image, Text } from "react-native";
 import NavOptions from "../components/NavOptions";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { GOOGLE_MAPS_API_KEY } from "@env";
@@ -10,20 +10,29 @@ import { setDestination, setOrigin } from "../slices/navSlice";
 export default function HomeScreen() {
   const dispatch = useDispatch();
 
+  function timeOfDay() {
+    const date = new Date();
+    const hour = date.getHours();
+    if (hour >= 0 && hour < 12) return "morning";
+    else if (hour >= 12 && hour < 18) return "afternoon";
+    else return "evening";
+  }
+
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
-      <View style={tw`p-5`}>
+      <View style={tw`pl-5`}>
         <Image
           style={{
             width: 100,
             height: 100,
             resizeMode: "contain",
+            marginBottom: -20,
           }}
           source={{
             uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/2560px-Uber_logo_2018.svg.png",
           }}
         />
-
+        <Text style={tw`py-5 text-2xl`}>Good {timeOfDay()}, Ollie</Text>
         <GooglePlacesAutocomplete
           placeholder="Where from?"
           styles={{
@@ -32,6 +41,7 @@ export default function HomeScreen() {
             },
             textInput: {
               fontSize: 18,
+              marginLeft: -10,
             },
           }}
           onPress={(data, details = null) => {
