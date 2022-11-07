@@ -1,6 +1,5 @@
 import React from "react";
-import { FlatList, Text, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { FlatList, Text, View, TouchableOpacity } from "react-native";
 import { Icon } from "@rneui/themed";
 import tw from "twrnc";
 
