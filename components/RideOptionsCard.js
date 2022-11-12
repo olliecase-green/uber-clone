@@ -54,7 +54,7 @@ export default function RideOptionsCard() {
           <Icon name="chevron-left" type="fontawesome" />
         </TouchableOpacity>
         <Text style={tw`text-center py-5 text-xl`}>
-          Select a ride - {travelTimeInformation?.distance.text}
+          Select a ride - {travelTimeInformation?.distance?.text}
         </Text>
       </View>
 
@@ -73,19 +73,20 @@ export default function RideOptionsCard() {
                 width: 75,
                 height: 75,
                 resizeMode: "contain",
+                marginLeft: -15,
               }}
               source={{ url: image }}
             />
-            <View style={tw`-ml-10`}>
+            <View style={tw`ml-2`}>
               <Text style={tw`text-xl font-semibold`}>{title}</Text>
-              <Text>{travelTimeInformation?.duration.text} travel time</Text>
+              <Text>{travelTimeInformation?.duration?.text} travel time</Text>
             </View>
             <Text style={tw`text-xl`}>
               {new Intl.NumberFormat("en-gb", {
                 style: "currency",
                 currency: "GBP",
               }).format(
-                (travelTimeInformation?.duration.value *
+                (travelTimeInformation?.duration?.value *
                   SURGE_CHARGE_RATE *
                   multiplier) /
                   100
